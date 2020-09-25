@@ -48,7 +48,7 @@ class LessonsController extends ApiController
      */
     public function index()
     {
-        return $this->setStatusCode(200)->respond('Success', $this->lessonTransformer->transformCollection($this->lesson->all()));
+        return $this->setStatusCode(200)->respond('Success', $this->lessonTransformer->transformCollection($this->lesson->all()->toArray()));
     }
 
     /**

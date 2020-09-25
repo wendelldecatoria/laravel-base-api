@@ -23,13 +23,13 @@ class ApiController extends Controller {
         return $this->setStatusCode(404)->respondWithError($message);
     }
 
-    public function respond($message = 'Success', $data = "", $headers = [])
+    public function respond($message = 'Success', $data = [], $headers = [])
     {
         return Response::json([
             'message' => $message,
             'status_code' => $this->statusCode,
             'data' => $data
-        ], $this->getStatusCode(), $headers)
+        ], $this->getStatusCode(), $headers);
     }
 
     public function respondWithError($message, $data = [])
@@ -42,9 +42,4 @@ class ApiController extends Controller {
             ]
         ]);
     }
-
-
-     
-
-
 }
